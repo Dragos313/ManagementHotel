@@ -56,13 +56,13 @@ namespace ManagementHotel
             btnAdauga.Visible = false;
             IDUtilizator = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txtUtilizator.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtUtilizator.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtNumePrenume.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            txtParola.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txtCNP.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            txtTelefon.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            cmbFunctie.SelectedIndex = dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "Administrator" ? 1 :
-                                       dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "Receptioner" ? 2 : 0;
+            txtUtilizator.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txtNumePrenume.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txtParola.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            txtCNP.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            txtTelefon.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            cmbFunctie.SelectedIndex = dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Administrator" ? 1 :
+                                       dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Receptioner" ? 2 : 0;
         }
 
         private void btnSterge_Click(object sender, EventArgs e)

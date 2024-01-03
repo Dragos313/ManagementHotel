@@ -71,5 +71,11 @@ namespace ManagementHotel
             frmParteneri fp = new frmParteneri();
             fp.Show();
         }
+
+        private void camereToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCamere fc = new frmCamere();
+            fc.Show();
+        }
     }
 }
