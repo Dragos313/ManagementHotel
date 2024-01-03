@@ -178,12 +178,6 @@ namespace ManagementHotel
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Selecteaza un utilizator", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    return;
-                }
                 if (txtUtilizator.Text == String.Empty)
                 {
                     MessageBox.Show("Introdu un nume de utilizator", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
