@@ -59,7 +59,6 @@
             this.RaportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(711, 33);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
@@ -69,6 +68,7 @@
             this.rezervariToolStripMenuItem1.Name = "rezervariToolStripMenuItem1";
             this.rezervariToolStripMenuItem1.Size = new System.Drawing.Size(109, 29);
             this.rezervariToolStripMenuItem1.Text = "Rezervari";
+            this.rezervariToolStripMenuItem1.Click += new System.EventHandler(this.rezervariToolStripMenuItem1_Click);
             // 
             // parteneriToolStripMenuItem
             // 

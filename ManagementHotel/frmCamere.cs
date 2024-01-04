@@ -17,6 +17,9 @@ namespace ManagementHotel
         DBConnect dbCon = new DBConnect();
         byte[] ImageData = null;
         public string IDCamera;
+        public string DenumireCamera;
+        public string PretZi;
+        public bool DeschisDinFrmRezervare;
         public frmCamere()
         {
             InitializeComponent();
@@ -255,6 +258,19 @@ namespace ManagementHotel
             {
                 MessageBox.Show(ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (DeschisDinFrmRezervare)
+            {
+                IDCamera = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                DenumireCamera = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                PretZi = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            
         }
     }
 }

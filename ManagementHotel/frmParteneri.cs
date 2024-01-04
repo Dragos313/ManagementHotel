@@ -20,6 +20,8 @@ namespace ManagementHotel
         public string IDPartener;
         public List<Tara> tari = new List<Tara>();
         public List<Judet> judete = new List<Judet>();
+        public string DenumireClient;
+        public bool DeschisDinFrmRezervare;
         public frmParteneri()
         {
             InitializeComponent();
@@ -309,6 +311,20 @@ namespace ManagementHotel
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (DeschisDinFrmRezervare)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    IDPartener = dataGridView1.SelectedRows[0].Cells[0].Value?.ToString();
+                    DenumireClient = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
     }

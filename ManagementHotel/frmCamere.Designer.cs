@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtPretZi = new System.Windows.Forms.TextBox();
+            this.txtEtaj = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNrLocuri = new System.Windows.Forms.TextBox();
@@ -43,10 +46,7 @@
             this.btnAdauga = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtEtaj = new System.Windows.Forms.TextBox();
-            this.txtPretZi = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -79,10 +79,36 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(851, 269);
+            this.groupBox1.Size = new System.Drawing.Size(851, 316);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adauga Camera Noua";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(513, 140);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 26);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtPretZi
+            // 
+            this.txtPretZi.Location = new System.Drawing.Point(140, 134);
+            this.txtPretZi.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPretZi.Name = "txtPretZi";
+            this.txtPretZi.Size = new System.Drawing.Size(255, 24);
+            this.txtPretZi.TabIndex = 26;
+            // 
+            // txtEtaj
+            // 
+            this.txtEtaj.Location = new System.Drawing.Point(580, 94);
+            this.txtEtaj.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEtaj.Name = "txtEtaj";
+            this.txtEtaj.Size = new System.Drawing.Size(255, 24);
+            this.txtEtaj.TabIndex = 25;
             // 
             // label2
             // 
@@ -220,18 +246,18 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 260);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 314);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -241,42 +267,19 @@
             this.dataGridView1.Size = new System.Drawing.Size(851, 246);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // txtEtaj
-            // 
-            this.txtEtaj.Location = new System.Drawing.Point(580, 94);
-            this.txtEtaj.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEtaj.Name = "txtEtaj";
-            this.txtEtaj.Size = new System.Drawing.Size(255, 24);
-            this.txtEtaj.TabIndex = 25;
-            // 
-            // txtPretZi
-            // 
-            this.txtPretZi.Location = new System.Drawing.Point(140, 134);
-            this.txtPretZi.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPretZi.Name = "txtPretZi";
-            this.txtPretZi.Size = new System.Drawing.Size(255, 24);
-            this.txtPretZi.TabIndex = 26;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(513, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 26);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(580, 134);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(154, 116);
+            this.pictureBox1.Size = new System.Drawing.Size(255, 173);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
@@ -284,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 506);
+            this.ClientSize = new System.Drawing.Size(851, 560);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCamere";

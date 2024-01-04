@@ -12,6 +12,7 @@ namespace ManagementHotel
 {
     public partial class frmMain : Form
     {
+        public string Utilizator;
         public frmMain()
         {
             InitializeComponent();
@@ -76,6 +77,13 @@ namespace ManagementHotel
         {
             frmCamere fc = new frmCamere();
             fc.Show();
+        }
+
+        private void rezervariToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRezervare rz = new frmRezervare();
+            rz.Utilizator = FormLogIn.loginname;
+            rz.Show();
         }
     }
 }

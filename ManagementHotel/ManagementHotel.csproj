@@ -74,6 +74,12 @@
     <Compile Include="frmParteneri.Designer.cs">
       <DependentUpon>frmParteneri.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRezervare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRezervare.Designer.cs">
+      <DependentUpon>frmRezervare.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUtilizator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmParteneri.resx">
       <DependentUpon>frmParteneri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRezervare.resx">
+      <DependentUpon>frmRezervare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUtilizator.resx">
       <DependentUpon>frmUtilizator.cs</DependentUpon>
