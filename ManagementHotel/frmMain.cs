@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace ManagementHotel
 {
     public partial class frmMain : Form
     {
+        DBConnect dbCon = new DBConnect();
         public string Utilizator;
         public frmMain()
         {
@@ -21,6 +23,10 @@ namespace ManagementHotel
         private void frmMain_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel2.Text = FormLogIn.loginname;
+            IncarcaRezervariViitoare();
+            IncarcaRezervari();
+            IncarcaTotalClienti();
+            IncarcaVenituri();
             timer1.Start();
             if (FormLogIn.logintype == "Vanzator")
             {
@@ -70,6 +76,13 @@ namespace ManagementHotel
         private void parteneriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmParteneri fp = new frmParteneri();
+            fp.FormClosed += (senderForm, eForm) =>
+            {
+                if (fp.DialogResult == DialogResult.OK)
+                {
+                    IncarcaTotalClienti();
+                }
+            };
             fp.Show();
         }
 
@@ -83,7 +96,77 @@ namespace ManagementHotel
         {
             frmRezervare rz = new frmRezervare();
             rz.Utilizator = FormLogIn.loginname;
+            rz.FormClosed += (senderForm, eForm) =>
+            {
+                if (rz.DialogResult == DialogResult.OK)
+                {
+                    IncarcaTotalClienti();
+                    IncarcaRezervariViitoare();
+                    IncarcaRezervari();
+                    IncarcaVenituri();
+                }
+            };
             rz.Show();
+        }
+        private void IncarcaRezervariViitoare()
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tblRezervareContinut WHERE DataInceput > GETDATE()", dbCon.GetCon()))
+            {
+                dbCon.OpenCon();
+
+                var result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    lblRezViitoare.Text = result.ToString();
+                }
+            }
+            dbCon.CloseCon();
+        }
+        private void IncarcaRezervari()
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tblRezervareContinut", dbCon.GetCon()))
+            {
+                dbCon.OpenCon();
+
+                var result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    lblRezervari.Text = result.ToString();
+                }
+            }
+            dbCon.CloseCon();
+        }
+        private void IncarcaTotalClienti()
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tblPartener", dbCon.GetCon()))
+            {
+                dbCon.OpenCon();
+
+                var result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    lblTotalClienti.Text = result.ToString();
+                }
+            }
+            dbCon.CloseCon();
+        }
+        private void IncarcaVenituri()
+        {
+            using (SqlCommand cmd = new SqlCommand("SELECT SUM(PretZi * NrZile) AS TotalCost FROM tblRezervareContinut WHERE DataSfarsit <= GETDATE()", dbCon.GetCon()))
+            {
+                dbCon.OpenCon();
+
+                var result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    lblVenituri.Text = result.ToString();
+                }
+            }
+            dbCon.CloseCon();
         }
     }
 }

@@ -29,6 +29,9 @@ namespace ManagementHotel
 
         private void frmParteneri_Load(object sender, EventArgs e)
         {
+            btnActualizeaza.Visible = false;
+            btnSterge.Visible = false;
+            btnAdauga.Visible = true;
             BindPartener();
             IncarcaTari();
             IncarcaJudete();
@@ -326,6 +329,11 @@ namespace ManagementHotel
                     this.Close();
                 }
             }
+        }
+
+        private void frmParteneri_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

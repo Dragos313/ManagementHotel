@@ -30,8 +30,13 @@ namespace ManagementHotel
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUtilizator));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbFunctie = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTelefon = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtParola = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSterge = new System.Windows.Forms.Button();
@@ -44,10 +49,6 @@ namespace ManagementHotel
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtTelefon = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbFunctie = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +82,48 @@ namespace ManagementHotel
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adauga Utilizator Nou";
+            // 
+            // cmbFunctie
+            // 
+            this.cmbFunctie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFunctie.FormattingEnabled = true;
+            this.cmbFunctie.Items.AddRange(new object[] {
+            "---",
+            "Administrator",
+            "Receptioner"});
+            this.cmbFunctie.Location = new System.Drawing.Point(652, 175);
+            this.cmbFunctie.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbFunctie.Name = "cmbFunctie";
+            this.cmbFunctie.Size = new System.Drawing.Size(286, 30);
+            this.cmbFunctie.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(489, 178);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 22);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Functie:";
+            // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Location = new System.Drawing.Point(172, 167);
+            this.txtTelefon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(286, 28);
+            this.txtTelefon.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 167);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 22);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Telefon:";
             // 
             // txtParola
             // 
@@ -206,14 +249,14 @@ namespace ManagementHotel
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -228,48 +271,6 @@ namespace ManagementHotel
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // txtTelefon
-            // 
-            this.txtTelefon.Location = new System.Drawing.Point(172, 167);
-            this.txtTelefon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(286, 28);
-            this.txtTelefon.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 167);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 22);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Telefon:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(489, 178);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 22);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Functie:";
-            // 
-            // cmbFunctie
-            // 
-            this.cmbFunctie.FormattingEnabled = true;
-            this.cmbFunctie.Items.AddRange(new object[] {
-            "---",
-            "Administrator",
-            "Receptioner"});
-            this.cmbFunctie.Location = new System.Drawing.Point(652, 175);
-            this.cmbFunctie.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cmbFunctie.Name = "cmbFunctie";
-            this.cmbFunctie.Size = new System.Drawing.Size(286, 30);
-            this.cmbFunctie.TabIndex = 20;
-            this.cmbFunctie.DropDownStyle = ComboBoxStyle.DropDownList;
-            // 
             // frmUtilizator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -277,9 +278,11 @@ namespace ManagementHotel
             this.ClientSize = new System.Drawing.Size(974, 643);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUtilizator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Utilizator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUtilizator_FormClosing);
             this.Load += new System.EventHandler(this.frmUtilizator_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

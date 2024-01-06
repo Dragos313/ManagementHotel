@@ -23,6 +23,12 @@ namespace ManagementHotel
         public frmCamere()
         {
             InitializeComponent();
+        }
+        private void frmCamere_Load(object sender, EventArgs e)
+        {
+            btnActualizeaza.Visible = false;
+            btnSterge.Visible = false;
+            btnAdauga.Visible = true;
             BindCamera();
         }
 
@@ -272,5 +278,7 @@ namespace ManagementHotel
             }
             
         }
+
+        
     }
 }
