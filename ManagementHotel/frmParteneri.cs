@@ -29,10 +29,30 @@ namespace ManagementHotel
 
         private void frmParteneri_Load(object sender, EventArgs e)
         {
-            btnActualizeaza.Visible = false;
-            btnSterge.Visible = false;
-            btnAdauga.Visible = true;
+            if (FormLogIn.logintype == "Receptioner")
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = false;
+            }
+            else 
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = true;
+            }
+            if (DeschisDinFrmRezervare)
+            {
+                lblSelectare.Visible = true;
+            }
+            else
+            {
+                lblSelectare.Visible = false;
+            }
+            
             BindPartener();
+            BindDupaDenumireClient();
+            CautaDupaDenumireClient();
             IncarcaTari();
             IncarcaJudete();
         }
@@ -254,9 +274,18 @@ namespace ManagementHotel
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            btnActualizeaza.Visible = true;
-            btnSterge.Visible = true;
-            btnAdauga.Visible = false;
+            if (FormLogIn.logintype == "Receptioner")
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = false;
+            }
+            else 
+            {
+                btnActualizeaza.Visible = true;
+                btnSterge.Visible = true;
+                btnAdauga.Visible = false;
+            }
             IDPartener = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txtNumePrenume.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txtCNP.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
@@ -334,6 +363,61 @@ namespace ManagementHotel
         private void frmParteneri_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+        private void BindDupaDenumireClient()
+        {
+            SqlCommand cmd = new SqlCommand("getClient", dbCon.GetCon());
+            cmd.CommandType = CommandType.StoredProcedure;
+            dbCon.OpenCon();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cmbCauta.DataSource = dt;
+            cmbCauta.DisplayMember = "NumePrenume";
+            cmbCauta.ValueMember = "ID";
+            dbCon.CloseCon();
+        }
+        private void CautaDupaDenumireClient()
+        {
+            SqlCommand cmd = new SqlCommand("getClient", dbCon.GetCon());
+            cmd.CommandType = CommandType.StoredProcedure;
+            dbCon.OpenCon();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cmbCauta.DataSource = dt;
+            cmbCauta.DisplayMember = "NumePrenume";
+            cmbCauta.ValueMember = "ID";
+            dbCon.CloseCon();
+        }
+        private void RezultatClient()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("getClient_DupaNume", dbCon.GetCon());
+                cmd.Parameters.AddWithValue("@ID", cmbCauta.SelectedValue);
+                cmd.CommandType = CommandType.StoredProcedure;
+                dbCon.OpenCon();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                dbCon.CloseCon();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RezultatClient();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BindPartener();
         }
     }
 }

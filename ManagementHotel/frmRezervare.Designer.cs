@@ -302,7 +302,7 @@
             // cmbCauta
             // 
             this.cmbCauta.FormattingEnabled = true;
-            this.cmbCauta.Location = new System.Drawing.Point(211, 21);
+            this.cmbCauta.Location = new System.Drawing.Point(237, 21);
             this.cmbCauta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCauta.Name = "cmbCauta";
             this.cmbCauta.Size = new System.Drawing.Size(417, 30);

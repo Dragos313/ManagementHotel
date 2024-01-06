@@ -77,8 +77,8 @@ namespace ManagementHotel
                         else if (cmbFunctie.Text == "Receptioner")
                         {
                             SqlCommand cmd = new SqlCommand("select top 1 Utilizator,Parola,NumePrenume from tblUtilizator where Utilizator=@Utilizator and Parola=@Parola and Functie like 'Receptioner'", dbCon.GetCon());
-                            cmd.Parameters.AddWithValue("@NumeVanzator", txtUtilizator.Text);
-                            cmd.Parameters.AddWithValue("@ParolaVanzator", txtParola.Text);
+                            cmd.Parameters.AddWithValue("@Utilizator", txtUtilizator.Text);
+                            cmd.Parameters.AddWithValue("@Parola", txtParola.Text);
                             dbCon.OpenCon();
                             SqlDataAdapter da = new SqlDataAdapter(cmd);
                             DataTable dt = new DataTable();

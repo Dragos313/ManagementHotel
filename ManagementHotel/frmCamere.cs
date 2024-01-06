@@ -26,9 +26,26 @@ namespace ManagementHotel
         }
         private void frmCamere_Load(object sender, EventArgs e)
         {
-            btnActualizeaza.Visible = false;
-            btnSterge.Visible = false;
-            btnAdauga.Visible = true;
+            if (FormLogIn.logintype == "Receptioner")
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = false;
+            }
+            else
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = true;
+            }
+            if (DeschisDinFrmRezervare)
+            {
+                lblSelectare.Visible = true;
+            }
+            else
+            {
+                lblSelectare.Visible = false;
+            }
             BindCamera();
         }
 
@@ -146,9 +163,18 @@ namespace ManagementHotel
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            btnActualizeaza.Visible = true;
-            btnSterge.Visible = true;
-            btnAdauga.Visible = false;
+            if (FormLogIn.logintype == "Receptioner")
+            {
+                btnActualizeaza.Visible = false;
+                btnSterge.Visible = false;
+                btnAdauga.Visible = false;
+            }
+            else
+            {
+                btnActualizeaza.Visible = true;
+                btnSterge.Visible = true;
+                btnAdauga.Visible = false;
+            }
             IDCamera = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txtTipCamera.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txtNrCamera.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();

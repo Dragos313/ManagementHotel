@@ -28,7 +28,7 @@ namespace ManagementHotel
             IncarcaTotalClienti();
             IncarcaVenituri();
             timer1.Start();
-            if (FormLogIn.logintype == "Vanzator")
+            if (FormLogIn.logintype == "Receptioner")
             {
                 camereToolStripMenuItem.Enabled = false;
                 camereToolStripMenuItem.ForeColor = Color.Red;
